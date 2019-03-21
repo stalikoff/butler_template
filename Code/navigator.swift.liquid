@@ -32,7 +32,7 @@ class {{ module_info.name }}Navigator: Navigator {
 	}
 	
 	// MARK: - Private
-	private func makeViewController(for destination: Destination) -> UIViewController? {
+	internal func makeViewController(for destination: Destination) -> UIViewController? {
 		switch destination {
 		case .someDestination:
 			return resolver.resolve(SomeViewType.self) as? SomeViewController
