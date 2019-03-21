@@ -15,15 +15,15 @@ class {{ module_info.name }}Navigator: Navigator {
 		case someDestination
 	}
   
-  private weak var sourceViewController: UIViewController?
+	private weak var sourceViewController: UIViewController?
 
-  // MARK: - Initializer
-  init(sourceViewController: UIViewController?) {
-  	self.sourceViewController = sourceViewController
-  }
+	// MARK: - Initializer
+	init(sourceViewController: UIViewController?) {
+		self.sourceViewController = sourceViewController
+	}
 
-  // MARK: - Navigator
-  func navigate(to destination: {{ module_info.name }}Navigator.Destination) {
+	// MARK: - Navigator
+	func navigate(to destination: {{ module_info.name }}Navigator.Destination) {
 		if let destinationViewController = makeViewController(for: destination) {
 			if let navVC = sourceViewController?.navigationController {
 				navVC.pushViewController(destinationViewController, animated: true)
@@ -35,11 +35,7 @@ class {{ module_info.name }}Navigator: Navigator {
 	private func makeViewController(for destination: Destination) -> UIViewController? {
 		switch destination {
 		case .someDestination:
-			let storyboard = UIStoryboard(name: "SomeStoryboard", bundle: Bundle.main)
-			return storyboard.instantiateInitialViewController()
-
-			// or
-			// return resolver.resolve(SomeViewType.self) as? SomeViewController
+			return resolver.resolve(SomeViewType.self) as? SomeViewController
 		}
 	}
 }

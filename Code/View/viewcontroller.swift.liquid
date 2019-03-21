@@ -8,17 +8,18 @@
 
 import UIKit
 
-public class {{ module_info.name }}ViewController: UIViewController, {{module_info.name}}ViewType {
+class {{ module_info.name }}ViewController: UIViewController {
   private var presenter: {{ module_info.name }}PresenterType?
-  public var notifying: NotificationService?
-
-  // MARK: - View Type
-  public func set(presenter: {{ module_info.name }}PresenterType) {
-  	self.presenter = presenter
-  }
 
   // MARK: Life cycle
-  public override func viewDidLoad() {
+  override func viewDidLoad() {
   	super.viewDidLoad()
+    presenter?.viewIsReady()
+  }
+}
+
+extension {{ module_info.name }}ViewController: {{module_info.name}}ViewType {
+  func set(presenter: {{ module_info.name }}PresenterType) {
+  	self.presenter = presenter
   }
 }

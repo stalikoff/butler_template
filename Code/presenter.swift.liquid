@@ -6,11 +6,15 @@
 //  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-public class {{ module_info.name }}Presenter: {{ module_info.name }}PresenterType {
-  weak var view: {{ module_info.name }}ViewType?
-  var navigator: {{ module_info.name }}Navigator!
+class {{ module_info.name }}Presenter {
+	private weak var view: {{ module_info.name }}ViewType?
+	var navigator: {{ module_info.name }}Navigator!
+}
 
-	public func attach(view: {{ module_info.name }}ViewType) {
+extension {{ module_info.name }}Presenter: {{ module_info.name }}PresenterType {
+	func attach(view: {{ module_info.name }}ViewType) {
 		self.view = view
 	}
+
+	func viewIsReady() {}
 }
