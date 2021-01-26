@@ -11,6 +11,14 @@ import UIKit
 class {{ module_info.name }}ViewController: UIViewController {
   private var presenter: {{ module_info.name }}PresenterType?
 
+
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        let presenter = {{ module_info.name }}Presenter()
+        presenter.view = self
+        self.presenter = presenter
+  }
+
   // MARK: Life cycle
   override func viewDidLoad() {
   	super.viewDidLoad()

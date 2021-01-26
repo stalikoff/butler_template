@@ -1,7 +1,7 @@
 # Template information section
-name: "swifty_mvp"
+name: "butler_template"
 summary: "Swift MVP module template with UIViewController playing as a View."
-author: "Max Petrenko"
+author: "Oleg Vasiliev"
 version: "0.1.0"
 license: "MIT"
 
@@ -17,11 +17,3 @@ code_files:
 
 # Presenter layer
 - {name: Presenter.swift, path: Code/presenter.swift.liquid}
-- {name: Navigator.swift, path: Code/navigator.swift.liquid}
-- {name: Assembly.swift, path: Code/assembly.swift.liquid}
-
-# The declarations for test files
-test_files:
-
-# Presenter tests
-- {name: PresenterTests.swift, path: Tests/presenter_tests.swift.liquid}
