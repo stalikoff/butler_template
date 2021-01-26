@@ -8,26 +8,29 @@
 
 import UIKit
 
-class {{ module_info.name }}ViewController: UIViewController {
+class {{ module_info.name }}ViewController: BaseController {
   private var presenter: {{ module_info.name }}PresenterType?
 
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+ 	}
 
-	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        let presenter = {{ module_info.name }}Presenter()
-        presenter.view = self
-        self.presenter = presenter
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    let presenter = {{ module_info.name }}Presenter()
+    presenter.view = self
+    self.presenter = presenter
   }
 
   // MARK: Life cycle
   override func viewDidLoad() {
-  	super.viewDidLoad()
+    super.viewDidLoad()
     presenter?.viewIsReady()
   }
 }
 
 extension {{ module_info.name }}ViewController: {{module_info.name}}ViewType {
   func set(presenter: {{ module_info.name }}PresenterType) {
-  	self.presenter = presenter
+    self.presenter = presenter
   }
 }
